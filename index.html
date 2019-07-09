@@ -7,6 +7,7 @@
     <title>Bill Calculator</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <style>
 
         button {
@@ -16,6 +17,7 @@
         #display {
             margin-top: 25px;
             font-size: 30px;
+            padding: 0 20px;
         }
 
         strong {
@@ -40,75 +42,27 @@
 <body>
     
     <div class="jumbotron bg-warning">
-        <h1 class="display-4 text-center text-white">yo<span class="font-weight-bold text-dark">U O</span>we</h1>
+        <h1 class="display-4 text-center text-white animated fadeInDown">yo<span class="font-weight-bold text-dark animated flash delay-3s">U O</span>we</h1>
         <hr class="my-4">
-        <h1 class="text-center" id="amount">$0.00</h1>
-        <h2 class="text-center" id="tip_amount"></h2>
+        <h1 class="text-center animated fadeInDown delay-1s" id="amount">$0.00</h1>
+        <h2 id="tip_amount"></h2>
     </div>
 
     <div class="form-row text-center">
         <div id="display" class="col-12">
-            <button id="split" type="button" class="btn btn-outline-danger btn-lg" onclick="split()">Split Bill Equally</button><br>
-            <button id="itemize" type="button" class="btn btn-outline-danger btn-lg" onclick="itemize()">Itemize Bill</button>
+            <p class="animated fadeInUp delay-2s">Welcome!<br>What would you like to do?</p>
         </div>
-        <div id="user_entry" class="col-12"></div>
+        <div id="user_entry" class="col-12">
+            <button id="split" type="button" class="btn btn-outline-danger btn-lg animated fadeInLeft delay-2s" onclick="split()">Split Bill Equally</button><br>
+            <button id="itemize" type="button" class="btn btn-outline-danger btn-lg  animated fadeInRight delay-2s" onclick="itemize()">Itemize Bill</button>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
-    <script>
-        var total = 0;
-
-        function split() {
-            //document.getElementById("display").innerHTML = "";
-            document.getElementById("display").innerHTML = "Enter total bill: <br>";
-            document.getElementById("user_entry").innerHTML = '<input type="text" class="form-control col-md-2 offset-md-5 text-center" id="input"><br>' +
-                        '<button id="total" type="button" class="btn btn-outline-danger btn-lg" onclick="bill()">Enter</button>';
-        }
-
-        function bill() {
-            var data_entry = document.getElementById("input").value;
-            total += parseFloat(data_entry);
-
-            document.getElementById("display").innerHTML = "How many people are splitting the bill?<br>";
-            document.getElementById("user_entry").innerHTML = '<input type="text" class="form-control col-md-2 offset-md-5 text-center" id="input"><br>' +
-                        '<button id="num_of_people" type="button" class="btn btn-outline-danger btn-lg" onclick="individual()">Enter</button>';
-        }
-
-        function individual() {
-            var data_entry = document.getElementById("input").value;
-            total /= Math.round(100 * parseInt(data_entry))/100;
-
-            document.getElementById("amount").innerHTML = "$ " + total.toFixed(2);
-
-            document.getElementById("display").innerHTML = "How much tip would you like to add?<br>";
-            document.getElementById("user_entry").innerHTML = '<button id="tip10" type="button" class="btn btn-outline-danger btn-lg" onclick="tip(10)">10%</button><br>' +
-            '<button id="tip15" type="button" class="btn btn-outline-danger btn-lg" onclick="tip(15)">15%</button><br>' +
-            '<button id="tip20" type="button" class="btn btn-outline-danger btn-lg" onclick="tip(20)">20%</button><br>' +
-            '<button id="customtip" type="button" class="btn btn-outline-danger btn-lg" onclick="custom()">Other amount</button><br>';
-
-        }
-
-        function tip(amount) {
-            var tip = Math.round(total * amount)/100; 
-
-            document.getElementById("tip_amount").innerHTML = "Plus tip $ " + tip.toFixed(2);
-            
-            document.getElementById("display").innerHTML = "If charging the card, exclude the tip.<br>Add the tip later after the initial charge.<br>" +
-                                                           "If paying by cash, pay the total amount of <br><strong class='bg-warning'> $ " + (total + tip).toFixed(2) + "</strong>";
-            document.getElementById("user_entry").innerHTML = "";
-        }
-
-        function custom() {
-
-            document.getElementById("display").innerHTML = "Pay the amount shown.<br> Please (re-)consider tipping any amount even if you deemed the service to be less desirable.<br><br>" +
-                                                           "<span style='font-size:100px;'>&#128523;</span>";
-            document.getElementById("user_entry").innerHTML = "";
-        }
-    
-    </script>
+    <script src="bill.js"></script>
 
 </body>
 </html>
