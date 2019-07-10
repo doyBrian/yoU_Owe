@@ -1,9 +1,9 @@
-var total = 0;
+        var total = 0;
         var subtotal;
 
         function split() {
             document.getElementById("display").innerHTML = "Enter total bill: <br>";
-            document.getElementById("user_entry").innerHTML = '<input type="text" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
+            document.getElementById("user_entry").innerHTML = '<input type="number" autofocus="autofocus" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
                         '<button id="total" type="button" class="btn btn-outline-danger btn-lg animated fadeInUp" onclick="bill()">Enter</button>';
         }
 
@@ -12,7 +12,7 @@ var total = 0;
             total += parseFloat(data_entry);
 
             document.getElementById("display").innerHTML = "How many people are splitting the bill?<br>";
-            document.getElementById("user_entry").innerHTML = '<input type="text" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
+            document.getElementById("user_entry").innerHTML = '<input type="number" autofocus="autofocus" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
                         '<button id="num_of_people" type="button" class="btn btn-outline-danger btn-lg animated fadeInUp" onclick="individual()">Enter</button>';
         }
 
@@ -72,8 +72,8 @@ var total = 0;
         }
 
         function itemize() {
-            document.getElementById("display").innerHTML = "Enter price of ordered item: <br>";
-            document.getElementById("user_entry").innerHTML = '<input type="text" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input">' +
+            document.getElementById("display").innerHTML = "Enter price of item you ordered: <br>";
+            document.getElementById("user_entry").innerHTML = '<input type="number" autofocus="autofocus" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input">' +
                         '<button id="price" type="button" class="btn btn-outline-danger btn-lg animated fadeInRight" onclick="add()">Add Item</button><br><br>' +
                         '<button id="shared" type="button" class="btn btn-outline-danger btn-lg animated fadeInLeft" onclick="shared()">Had A Shared Item?</button><br>' + 
                         '<button id="done" type="button" class="btn btn-outline-danger btn-lg animated fadeInUp" onclick="tax()">Done</button>';
@@ -90,7 +90,7 @@ var total = 0;
 
         function shared() {
             document.getElementById("display").innerHTML = "Enter price of shared item: <br>";
-            document.getElementById("user_entry").innerHTML = '<input type="text" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
+            document.getElementById("user_entry").innerHTML = '<input type="number" autofocus="autofocus" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
                         '<button id="shared_number" type="button" class="btn btn-outline-danger btn-lg animated fadeInUp" onclick="shared_split()">Enter</button>';
         }
 
@@ -100,7 +100,7 @@ var total = 0;
             subtotal += parseFloat(data_entry);
 
             document.getElementById("display").innerHTML = "How many people are splitting this shared item?<br>";
-            document.getElementById("user_entry").innerHTML = '<input type="text" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
+            document.getElementById("user_entry").innerHTML = '<input type="number" autofocus="autofocus" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
                         '<button id="num_of_people" type="button" class="btn btn-outline-danger btn-lg animated fadeInUp" onclick="add_split()">Enter</button>';
         }
 
@@ -116,7 +116,7 @@ var total = 0;
 
         function tax() {
             document.getElementById("display").innerHTML = "What is the sales tax in percentage: <br>";
-            document.getElementById("user_entry").innerHTML = '<input type="text" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
+            document.getElementById("user_entry").innerHTML = '<input type="number" autofocus="autofocus" class="form-control col-md-2 offset-md-5 text-center animated fadeInDown" id="input"><br>' +
                         '<button id="tax" type="button" class="btn btn-outline-danger btn-lg animated fadeInUp" onclick="calculate()">Enter</button>';
         }
 

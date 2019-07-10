@@ -4,6 +4,8 @@ A mobile-responsive web app for splitting or itemizing the tab or bill and calcu
 ## Deployed Link
 https://doybrian.github.io/yoU_Owe/
 
+<img src="screenshot.png" width="600" height="968">
+
 ### Design Plan
 
 * Uses only front-end plain Javascript to function as a simple bill splitter or itemizer and tip calculator.
